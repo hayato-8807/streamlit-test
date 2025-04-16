@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import os
 
 # アプリのタイトル
 st.title('データ分析ダッシュボード')
@@ -9,7 +10,8 @@ st.title('データ分析ダッシュボード')
 # CSVファイルの読み込み
 @st.cache
 def load_data():
-    df = pd.read_csv('/Users/mpc12767/.cursor-tutor/streamlit-project/test/sales_test_data_100.csv')
+    # カレントディレクトリから相対パスでファイルを指定
+    df = pd.read_csv('sales_test_data_100.csv')
     return df
 
 df = load_data()
